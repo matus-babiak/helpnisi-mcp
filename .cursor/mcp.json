@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "template-elementor": {
+      "url": "https://helpnisi.matusbabiak.sk/wp-json/elementor/mcp/",
+      "headers": {
+        "Authorization": "Basic ${env:HELPNISI_MCP_AUTH}"
+      }
+    }
+  }
+}
