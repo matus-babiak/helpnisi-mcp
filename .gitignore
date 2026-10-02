@@ -1,0 +1,11 @@
+# tajné údaje – nikdy do gitu
+.env
+.env.*
+!.env.example
+*.local.json
+
+# systémové a dočasné súbory
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
