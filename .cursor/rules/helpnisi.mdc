@@ -1,0 +1,39 @@
+---
+description: Základné pravidlá helpnisi — plán pred implementáciou, žiadne tajomstvá, texty klientky, MCP pasce.
+alwaysApply: true
+---
+
+# helpnisi — vždy platné
+
+Toto nie je aplikácia so `src/`. Je to web WordPress + Elementor. Zdroj pravdy pre AI vývoj: `docs/ai/README.md`.
+
+## Oddelenie plánu a implementácie
+
+- Zmena webu, šablóny, textu na stránke, odkazu, formulára alebo obchodu sa najprv **plánuje** (`/helpnisi-plan`).
+- Zápis cez MCP alebo iný zásah do WordPressu až po **výslovnom schválení** a `/helpnisi-implement` (alebo rovnakom schválenom zadaní).
+- Plánovanie nemení web. „Ešte som si všimol a opravil“ je zakázané.
+- V jednom kole je **hlavná priorita** jedna. Zvyšok čaká.
+
+## Nesmieš
+
+- zapisovať `HELPNISI_MCP_AUTH`, heslá, Application Passwords do súborov v gite
+- meniť texty klientky bez pokynu
+- vymýšľať recenzie a sľuby vyliečenia
+- mazať stránky, šablóny 19/79/80, formulár, produkt
+- meniť platby, site URL, `noindex`, používateľov
+- tvrdiť stav webu, ktorý si v tomto kole neoveril (HTML, MCP alebo REST)
+- prepisovať architektúru, ak stačí existujúci pattern
+- vymýšľať URL na neexistujúce stránky
+
+## Musiš
+
+- pred návrhom čítať relevantné `docs/ai/*.md` a overiť živý web
+- pri MCP: publish po kroku, cache po publikovaní, neriešiť šírku cez zmiešaný `max()`/`calc()` padding
+- nové sekcie: vonkajší obal + vnútorný `max-width: 1140px`
+- paleta a písma z `docs/ai/ui-ux.md`
+- pri nejasnosti sa spýtať
+- po zmene systémového faktu upraviť `docs/ai/`
+
+Ak chýba MCP auth, web sa neupravuje. Povedz to. Neskúšaj obchádzať 401.
+
+Podrobnosti: `docs/ai/agent.md`, `docs/ai/harness.md`, `CLAUDE.md` (MCP pasce).
