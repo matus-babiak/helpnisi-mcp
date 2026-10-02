@@ -1,23 +1,36 @@
 # helpnisi-mcp
 
-Pracovný repozitár k webu **helpnisi** (WordPress + Elementor): podklady, konfigurácia MCP a pravidlá pre AI agentov.
+Pracovný repozitár k webu **helpnisi** (WordPress + Elementor): podklady, konfigurácia MCP, knowledge base a pravidlá pre AI agentov.
 
-Samotný obsah webu je vo WordPresse na https://helpnisi.matusbabiak.sk a upravuje sa cez MCP server Elementoru. Tento repozitár slúži na to, aby sa na webe dalo pracovať z viacerých zariadení a nástrojov s rovnakým kontextom.
+Obsah webu je vo WordPresse na https://helpnisi.matusbabiak.sk. Tento git slúži na to, aby sa na webe dalo pracovať z viacerých zariadení s rovnakým kontextom a s oddeleným plánovaním od implementácie.
+
+## Ako dávať prácu AI
+
+Napíš ľudsky, čo chceš. Potom:
+
+1. `/helpnisi-plan` — agent overí web a navrhne najmenšiu zmenu. Nič nepublikuje.
+2. Schváliš (alebo upresníš).
+3. `/helpnisi-implement` — agent zmenu urobí, publikuje, overí.
+
+Zdroj pravdy: [`docs/ai/README.md`](docs/ai/README.md).
 
 ## Čo tu je
 
 | Súbor / priečinok | Na čo slúži |
 |---|---|
-| `CLAUDE.md` | Kontext projektu, pravidlá dizajnu, overené postupy. Číta ho Claude. |
-| `AGENTS.md` | To isté v skratke pre Cursor a iných agentov. |
-| `.mcp.json` | Pripojenie MCP pre Claude Code. |
-| `.cursor/mcp.json` | Pripojenie MCP pre Cursor. |
-| `.env.example` | Vzor pre prihlasovací údaj. |
-| `images/` | Fotky a grafika použité na webe. |
+| `docs/ai/` | Knowledge base a AI workflow |
+| `.cursor/commands/` | `/helpnisi-plan`, `/helpnisi-implement` |
+| `.cursor/rules/` | Pravidlá, ktoré Cursor berie vždy |
+| `CLAUDE.md` | Krátky vstup + MCP pasce |
+| `AGENTS.md` | Vstup pre Cursor |
+| `.mcp.json` | MCP pre Claude Code |
+| `.cursor/mcp.json` | MCP pre Cursor |
+| `.env.example` | Vzor pre prihlasovací údaj |
+| `images/` | Fotky a grafika (podklady) |
 
 ## Prihlasovací údaj
 
-Repozitár je verejný, preto v ňom nie je žiadne heslo. Oba konfiguračné súbory čítajú premennú prostredia `HELPNISI_MCP_AUTH`.
+Repozitár je verejný, preto v ňom nie je žiadne heslo. Konfiguračné súbory čítajú `HELPNISI_MCP_AUTH`.
 
 Hodnota je reťazec za slovom `Basic` v prompte, ktorý vygeneruje Elementor (WP admin → Elementor → MCP). Je to base64 z `pouzivatel:aplikacne-heslo` bez medzier.
 
@@ -42,14 +55,14 @@ V nastaveniach cloudového prostredia pridaj premennú `HELPNISI_MCP_AUTH` a do 
 ## Ako začať
 
 1. Naklonuj repozitár a nastav `HELPNISI_MCP_AUTH`.
-2. Otvor priečinok v Cursore alebo v Claude Code – server `template-elementor` sa načíta z konfigurácie v repozitári.
-3. Zadaj úlohu. Agent si pravidlá prečíta z `CLAUDE.md` / `AGENTS.md`.
+2. Otvor priečinok v Cursore alebo v Claude Code.
+3. Zmenu webu spusti cez `/helpnisi-plan`.
 
 ## Pravidlo pre každú úpravu webu
 
-1. upraviť cez MCP,
-2. publikovať dokument,
-3. vyčistiť cache Elementoru,
-4. skontrolovať živú stránku.
-
-Keď sa zmení niečo podstatné (nová sekcia, nové pravidlo, nové ID), dopíš to do `CLAUDE.md` a commitni.
+1. naplánovať a schváliť,
+2. upraviť cez MCP,
+3. publikovať dokument,
+4. vyčistiť cache Elementoru,
+5. skontrolovať živú stránku,
+6. ak sa zmenil systémový fakt, dopísať `docs/ai/` a commitnúť.

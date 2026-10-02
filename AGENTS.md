@@ -1,10 +1,10 @@
 # Pokyny pre AI agentov
 
-Všetok kontext projektu, pravidlá dizajnu a overené postupy pre MCP Elementoru sú v súbore [`CLAUDE.md`](./CLAUDE.md). Prečítaj ho pred prvou úpravou.
+Zdroj pravdy: [`docs/ai/README.md`](docs/ai/README.md). Operatívne MCP pasce: [`CLAUDE.md`](./CLAUDE.md).
 
-Najdôležitejšie:
+## Workflow
 
-- Obsah webu sa upravuje cez MCP server `template-elementor`, nie v súboroch tohto repozitára.
-- Po každej úprave zavolaj `publish-document` a vyčisti cache Elementoru.
-- Obsah každej sekcie drž v kontajneri so šírkou max. 1140 px.
-- Do repozitára nikdy nezapisuj heslá ani prihlasovacie reťazce.
+1. `/helpnisi-plan` — pochop, over živý web, navrhni, spýtaj sa, počkaj na schválenie. Web nemente.
+2. Až potom `/helpnisi-implement` so schváleným zadaním.
+
+V jednom kole jedna **hlavná priorita**. Texty na webe sú od klientky. Heslá do gitu nepatria. Obsah stránok žije vo WordPresse a mení sa cez MCP `template-elementor`, nie cez `src/`.
