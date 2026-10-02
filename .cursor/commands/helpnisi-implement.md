@@ -18,7 +18,7 @@ Najprv si prečítaj:
 
 ## Pravidlá
 
-1. Bez schváleného, konkrétneho zadania **zastav**. Neimplentuj z vágnej vety.
+1. Bez schváleného, konkrétneho zadania **zastav**. Neimplementuj z vágnej vety.
 2. Over aktuálny stav (MCP štruktúra alebo živé HTML). Ak nesedí so zadaním, zastav a povedz čo je inak.
 3. Ak MCP vráti 401 alebo chýba `HELPNISI_MCP_AUTH`, zastav. Heslo nezapisuj do gitu.
 4. Urob len to, čo prompt žiada. Žiadne extra opravy.
