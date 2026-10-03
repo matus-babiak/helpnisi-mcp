@@ -66,15 +66,17 @@ Stĺpce: citát / Služby / Kontakt / Dokumenty.
 
 ## Formulár
 
-- Živý widget: V4 atomic `e-form` (`data-id="4d469f35"`), **nie** klasický Elementor Pro Form (`widgetType=form` / `.elementor-form`)
+- Živý widget: klasický Elementor Pro Form (`widgetType=form`, `.elementor-form`, `data-id="a19f0c2"`). Starý atomic `e-form` `4d469f35` je preč.
 - Názov: Homepage konzultácia
-- Polia: `contact-first-name`, `contact-last-name`, `contact-email`, `contact-message` — všetky `required`, placeholdery Meno / Priezvisko / Email / Vaša správa
+- Polia: `contact-first-name`, `contact-last-name`, `contact-email`, `contact-message` — všetky `required`, placeholdery Meno / Priezvisko / Email / Vaša správa. Labely sú `elementor-screen-only` (v UI placeholder).
+- Meno a Priezvisko vedľa seba (`elementor-col-50`).
 - Submit: „Dohodnúť si konzultáciu“ (`type=submit`)
 - Úspech: „Ďakujem. Ozvem sa vám čoskoro.“
 - Chyba: „Správu sa nepodarilo odoslať. Skúste to prosím znova.“
 - Kotva `#kontakt`: **existuje** na vonkajšom obale sekcie `56037d37` (H2 + formulár). Nie na inpute.
 - CTA s `href` `#kontakt` alebo `/#kontakt` (nemenili sa): header `167100bb` (`/#kontakt`), homepage `78d5a485`, `61254e9f`, `25dbcc77`, `2b64532c`, `4f40c68f`
-- E-mailová akcia: v tomto kole sa **nenastavovala**. Na existujúcom atomic `e-form` je v editore už vyplnená (nemazalo sa). Klasický Pro Form sa cez MCP **nepodarilo vložiť** — `elementor-list-widget-schemas` typ `form` neponúka, `get-widget-schema` pre `form` vracia „Unknown widget type“, `build-composition` s `<form>` vytvorí 0 prvkov. Editor cez MCP ponúka atomic `e-form` + `e-form-input` / `e-form-textarea` / `e-form-submit-button`. Atomic form ani HTML fake sa namiesto Pro Form nedávali.
+- Actions After Submit: **prázdne** (`submit_actions: []`). E-mail, redirect ani webhook sa nenastavovali. Mail zatiaľ nechodí — to sa v tomto kole neriešilo.
+- MCP `build-composition` typ `form` nevie vložiť; widget je na stránke cez Elementor `_elementor_data` (skutočný Pro Form, nie HTML fake).
 
 ## Médiá
 
