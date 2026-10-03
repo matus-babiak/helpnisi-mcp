@@ -67,7 +67,8 @@ Sekcie domovskej stránky v poradí: Hero, Problems, Main Idea, Whole, Approach,
 ## Otvorené veci
 
 - Odkazy v menu a v pätičke (kam majú viesť).
-- Kotva `kontakt` na sekcii s formulárom (tlačidlá odkazujú na `/#kontakt`).
+- Kotva `id="kontakt"` je na vonkajšom obale kontaktnej sekcie (`56037d37`); tlačidlá idú na `/#kontakt` / `#kontakt`.
+- Formulár na homepage je klasický Elementor Pro Form (`a19f0c2`, `.elementor-form`). E-mailová akcia nie je nastavená.
 - Viaceré fotky sú zatiaľ textové zástupné prvky (Whole, Expertise, Trust, Support).
 - Portrét v hero má malé rozlíšenie (zdroj 440 px) – vymeniť, keď klientka pošle väčší.
 - Mobilné zobrazenie nebolo systematicky skontrolované.
